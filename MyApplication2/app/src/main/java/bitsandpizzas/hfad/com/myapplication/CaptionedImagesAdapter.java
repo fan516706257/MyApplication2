@@ -1,6 +1,5 @@
 package bitsandpizzas.hfad.com.myapplication;
 
-import android.net.sip.SipSession;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -17,8 +16,8 @@ import android.view.View;
         private Listener listener;
 
 
-        public static abstract class Listener{
-            public abstract void onClick(int position);
+        public static interface Listener{
+            public void onClick(int position);
         }
 
         public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -44,7 +43,7 @@ import android.view.View;
         }
         public void onBindViewHolder(ViewHolder holder,final int position){
             CardView cardView =holder.cardView;
-            ImageView imageView =(ImageView)cardView.findViewById(R.id.funghi_jpg);
+            ImageView imageView =(ImageView)cardView.findViewById(R.id.info_image);
             Drawable drawable = cardView.getResources().getDrawable(imageIds[position]);
             imageView.setImageDrawable(drawable);
             imageView.setContentDescription(captions[position]);

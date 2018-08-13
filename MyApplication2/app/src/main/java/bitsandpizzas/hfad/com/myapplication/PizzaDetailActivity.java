@@ -20,15 +20,15 @@ public class PizzaDetailActivity extends Activity {
         setContentView (R.layout.activity_pizza_detail);
 
 
-        getActionBar ().setDisplayHomeAsUpEnabled (true);
+        getActionBar().setDisplayHomeAsUpEnabled (true);
 
         int pizzaNo = (Integer) getIntent ().getExtras ().get(EXTRA_PIZZANO);
         String pizzaName = Pizza.pizzas[pizzaNo].getName();
         TextView textView = (TextView)findViewById (R.id.pizza_text);
         textView.setText (pizzaName);
         int pizzaImage = Pizza.pizzas[pizzaNo].getImageResourceId();
-        ImageView imageView = (ImageView)findViewById (R.id.funghi_jpg);
-        ImageView.getResources().getResources(pizzaImage);
+        ImageView imageView = (ImageView)findViewById (R.id.pizza_image);
+        imageView.setImageDrawable(getResources().getDrawable(pizzaImage));
         imageView.setContentDescription (pizzaName);
 
 
@@ -36,6 +36,7 @@ public class PizzaDetailActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
+
         getMenuInflater ().inflate (R.menu.menu_main,menu);
 
         TextView textView = (TextView)findViewById (R.id.pizza_text);
